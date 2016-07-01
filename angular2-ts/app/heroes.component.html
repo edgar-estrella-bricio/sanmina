@@ -1,0 +1,34 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span>My Heroes</span>
+    <button class="btn btn-sm btn-info pull-right" (click)="addHero()">Add New Hero</button>
+  </div>
+  <div class="panel-body">
+    <table class="table text-center">
+      <thead>
+        <tr>
+            <th class="text-center">Index</th>
+            <th class="text-center">Hero</th>
+            <th class="text-center"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hero of heroes" [class.active]="hero === selectedHero" (click)="onSelect(hero)">
+          <td><span class="badge">{{hero.id}}</span></td>
+          <td>{{hero.name}}</td>
+          <td><button class="btn btn-warning" (click)="delete(hero, $event)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+   
+    <div *ngIf="addingHero">
+      <my-hero-detail (close)="close($event)"></my-hero-detail>
+    </div>
+    <div *ngIf="selectedHero">
+      <h2>
+        {{selectedHero.name | uppercase}} is my hero
+      </h2>
+      <button class="btn btn-default" (click)="gotoDetail()">View Details</button>
+    </div>
+  </div>
+</div>

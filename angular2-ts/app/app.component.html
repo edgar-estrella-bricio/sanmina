@@ -1,0 +1,15 @@
+<nav class="navbar navbar-static-top navbar-inverse no-margin-bottom" role="navigation">
+    <a class="navbar-brand small-padding-right" data-toogle="tooltip" title="Home" ng-click="hidePopovers()" [routerLink]="['Dashboard']">
+        <span class="glyphicon glyphicon ion-flash">
+            <span> {{title}}</span>
+        </span>
+    </a>
+    <ul class="nav navbar-nav " id="process">
+        <li>
+            <a [routerLink]="['Heroes']">Heroes</a>
+        </li>
+    </ul>
+</nav>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
